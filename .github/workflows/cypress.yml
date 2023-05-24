@@ -1,0 +1,85 @@
+name: Cypress Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Test suite'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - bstackdemo
+          - bstackdemo50
+          - bstackdemo100
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Init NPM
+        working-directory: ./Cypress
+        run: npm init -y
+        
+      - name: Install Cypress
+        working-directory: ./Cypress
+        run: npm install cypress --save-dev
+        
+      - name: LS
+        working-directory: ./Cypress
+        run: ls
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v5
+        with:
+          # Disable running of tests within install job
+          working-directory: ./Cypress
+          runTests: false
+          
+      - name: Post LS
+        working-directory: ./Cypress
+        run: ls
+        
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: |
+            ./Cypress/package-lock.json
+            ./Cypress/package.json
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Pre Download LS
+        working-directory: ./Cypress
+        run: ls
+        
+      - name: Download the build folder
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./Cypress
+          
+      - name: Post Download LS
+        working-directory: ./Cypress
+        run: ls
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+        with:
+          working-directory: ./Cypress
+          record: true
+          parallel: true
+          config: specPattern=cypress/e2e/${{ inputs.suite }}/*.cy.(ts|tsx|js|jsx)
