@@ -1,4 +1,7 @@
 Nightwatch/node_modules
 Nightwatch/tests_output
 Nightwatch/logs
+Playwright/node_modules
+Playwright/test-resultss
+Playwright/playwright-report
 *.py
