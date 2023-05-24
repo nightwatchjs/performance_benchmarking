@@ -82,4 +82,4 @@ jobs:
           working-directory: ./Cypress
           record: true
           parallel: true
-          config: specPattern=cypress/e2e/${{ inputs.suite }}/*.cy.(ts|tsx|js|jsx),projectId=${{secrets.CYPRESS_PROJECT_ID}}
+          config: specPattern=cypress/e2e/${{ inputs.suite }}/*.cy.(ts|tsx|js|jsx),CYPRESS_PROJECT_ID=${{ secrets.CYPRESS_PROJECT_ID }}
