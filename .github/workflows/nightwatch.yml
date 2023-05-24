@@ -32,4 +32,4 @@ jobs:
     - run: sudo apt-get install xvfb
 
     - name: Run Nightwatch tests
-      run: xvfb-run --auto-servernum npx nightwatch test/performance/bstackdemo50 --headless
+      run: xvfb-run --auto-servernum npx nightwatch test/bstackdemo50 --headless
