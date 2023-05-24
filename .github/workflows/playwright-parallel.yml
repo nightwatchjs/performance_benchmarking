@@ -46,4 +46,4 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npx playwright test tests/performance/${{ inputs.suite }} --shard ${{ matrix.containers }}/5 --project ${{ inputs.project }}
+        run: npx playwright test tests/${{ inputs.suite }} --shard ${{ matrix.containers }}/5 --project ${{ inputs.project }}
