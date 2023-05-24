@@ -1,4 +1,6 @@
 describe('BSTD-009 Indian Offers', function() {
+  this.tags = ['three'];
+
   it('Visit bstackdemo, set geolocation to India and view offers', function(browser) {
       browser
       .setGeolocation({

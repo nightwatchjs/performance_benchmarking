@@ -1,4 +1,6 @@
 describe('BSTD-015 Order Total', function() {
+  this.tags = ['five'];
+
   it('Visit bstackdemo,select 2nd and 5th item and validate order total', function(browser) {
       browser
       .navigateTo('https://www.bstackdemo.com')

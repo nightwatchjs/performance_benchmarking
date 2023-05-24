@@ -1,4 +1,7 @@
 describe('BSTD 008 - Sort', function() {
+  this.tags = ['three'];
+
+
   it("Sort high to low & low to high and validate products", function (browser) {
     browser
     .navigateTo("https://www.bstackdemo.com/")

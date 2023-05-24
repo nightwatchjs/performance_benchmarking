@@ -1,4 +1,6 @@
 describe('BSTD 004 - Total Products', function() {
+  this.tags = ['one'];
+
   it("Count number of all products in the store", function (browser) {
     browser
     .navigateTo("https://www.bstackdemo.com/")

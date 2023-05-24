@@ -1,4 +1,7 @@
 describe('BSTD 005 - Favourite Products', function() {
+  this.tags = ['two'];
+
+
   it("select Samsung using xpath selector, favourite 2nd and 5th items, check count in favourites", function (browser) {
     browser
     .navigateTo("https://www.bstackdemo.com/")

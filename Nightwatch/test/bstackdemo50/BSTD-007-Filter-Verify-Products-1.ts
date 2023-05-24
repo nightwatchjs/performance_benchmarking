@@ -1,4 +1,7 @@
 describe('BSTD 007 - Filter Verify Products', function() {
+  this.tags = ['two'];
+
+
   it("Select different vendors and verify products", async function (browser) {
     await browser
     .navigateTo("https://www.bstackdemo.com/")

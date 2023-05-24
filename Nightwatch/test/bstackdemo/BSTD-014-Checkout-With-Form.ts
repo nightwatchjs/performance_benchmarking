@@ -1,4 +1,6 @@
 describe('BSTD-014 Checkout With Form', function() {
+  this.tags = ['five'];
+
   it('Visit bstackdemo,sign in, add to cart, click checkout, fill form and submit', function(browser) {
       browser
       .navigateTo('https://www.bstackdemo.com')

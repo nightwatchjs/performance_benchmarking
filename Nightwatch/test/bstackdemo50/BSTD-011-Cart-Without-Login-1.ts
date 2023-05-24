@@ -1,4 +1,6 @@
 describe('BSTD-011 Cart Without Login', function() {
+  this.tags = ['four'];
+  
   it('Visit bstackdemo, add to cart, click checkout and validate if sign in page is visible', function(browser) {
       browser
       .navigateTo('https://www.bstackdemo.com')

@@ -1,4 +1,6 @@
 describe('BSTD 006 - Filter Count', function() {
+  this.tags = ['two'];
+
   it("Select different vendors and verify counts", function (browser) {
     browser
     .navigateTo("https://www.bstackdemo.com/")
