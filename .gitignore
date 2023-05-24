@@ -1,0 +1,4 @@
+Nightwatch/node_modules
+Nightwatch/tests_output
+Nightwatch/logs
+*.py

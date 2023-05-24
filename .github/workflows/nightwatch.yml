@@ -1,0 +1,35 @@
+name: Nightwatch Tests
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Node version
+      run: node -v
+      
+    - name: NPM
+      run: sudo apt install npm
+      
+    - name: NPM version
+      run: npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - run: sudo apt-get install xvfb
+
+    - name: Run Nightwatch tests
+      run: xvfb-run --auto-servernum npx nightwatch test/performance/bstackdemo50 --headless
