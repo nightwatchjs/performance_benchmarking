@@ -1,0 +1,17 @@
+describe('BSTD 008 - Sort', () => {
+  it('Sort high to low & low to high and validate products', () => {
+    cy.visit('https://bstackdemo.com/')
+    .get("select")
+    .select("highestprice")
+    .get(".shelf-item")
+    .first()
+    .should("include.text","Galaxy S20 Ultra")
+    .should("include.text","1399")
+    .get("select")
+    .select("lowestprice")
+    .get(".shelf-item")
+    .first()
+    .should("include.text","Pixel 2")
+    .should("include.text","399")
+  })
+})
