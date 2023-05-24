@@ -1,0 +1,150 @@
+name: Nightwatch Parallel Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Test suite'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - bstackdemo
+          - bstackdemo50
+          - bstackdemo100
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Setup NPM
+      run: sudo apt install npm
+      
+    - name: Versions
+      run: node -v && npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - name: Post LS
+      run: ls
+    
+    - name: Run Nightwatch tests
+      run: npx nightwatch test/${{ inputs.suite }} --tag one --headless --env chrome
+      
+  job-2:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Setup NPM
+      run: sudo apt install npm
+      
+    - name: Versions
+      run: node -v && npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - name: Post LS
+      run: ls
+    
+    - name: Run Nightwatch tests
+      run: npx nightwatch test/${{ inputs.suite }} --tag two --headless --env chrome
+  
+  job-3:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Setup NPM
+      run: sudo apt install npm
+      
+    - name: Versions
+      run: node -v && npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - name: Post LS
+      run: ls
+    
+    - name: Run Nightwatch tests
+      run: npx nightwatch test/${{ inputs.suite }} --tag three --headless --env chrome
+    
+  job-4:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Setup NPM
+      run: sudo apt install npm
+      
+    - name: Versions
+      run: node -v && npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - name: Post LS
+      run: ls
+    
+    - name: Run Nightwatch tests
+      run: npx nightwatch test/${{ inputs.suite }} --tag four --headless --env chrome
+  
+  job-5:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Nightwatch
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Setup Node
+      run: sudo apt install nodejs
+      
+    - name: Setup NPM
+      run: sudo apt install npm
+      
+    - name: Versions
+      run: node -v && npm -v
+      
+    - name: npm-install
+      run: npm install
+    
+    - name: Post LS
+      run: ls
+    
+    - name: Run Nightwatch tests
+      run: npx nightwatch test/${{ inputs.suite }} --tag five --headless --env chrome

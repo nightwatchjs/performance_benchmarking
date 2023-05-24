@@ -1,4 +1,6 @@
 describe('BSTD-012 Cart With Login', function() {
+  this.tags = ['four'];
+
   it('Visit bstackdemo,sign in, add to cart, click checkout', function(browser) {
       browser
       .navigateTo('https://www.bstackdemo.com')

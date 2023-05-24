@@ -1,4 +1,6 @@
 describe('BSTD 003 - Logout', function() {
+  this.tags = ['one'];
+
   it('Login, verify the username, logout & verify the URL', function(browser) {
     browser
     .navigateTo("https://www.bstackdemo.com/")

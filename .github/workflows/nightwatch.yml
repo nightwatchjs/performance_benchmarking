@@ -1,12 +1,24 @@
 name: Nightwatch Tests
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Test suite'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - bstackdemo
+          - bstackdemo50
+          - bstackdemo100
+
+
 
 jobs:
   build:
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./Nightwatch
@@ -29,7 +41,5 @@ jobs:
     - name: npm-install
       run: npm install
     
-    - run: sudo apt-get install xvfb
-
     - name: Run Nightwatch tests
-      run: npx nightwatch test/bstackdemo --headless --env chrome
+      run: npx nightwatch test/${{ inputs.suite }} --headless --env chrome

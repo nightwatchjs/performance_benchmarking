@@ -1,4 +1,6 @@
 describe('BSTD-010 US Offers', function() {
+  this.tags = ['four'];
+
   it('Visit bstackdemo, set geolocation to US and view offers', function(browser) {
       browser
       .setGeolocation({
