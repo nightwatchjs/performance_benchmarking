@@ -72,14 +72,12 @@ jobs:
       - name: Post Download LS
         working-directory: ./Cypress
         run: ls
-        
-      - name: Print Project ID
-        run: echo ${{ secrets.CYPRESS_PROJECT_ID }}
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
         with:
           working-directory: ./Cypress
