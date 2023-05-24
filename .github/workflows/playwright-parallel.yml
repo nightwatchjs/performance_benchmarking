@@ -23,7 +23,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./Playwright
