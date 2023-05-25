@@ -12,6 +12,16 @@ on:
           - bstackdemo
           - bstackdemo50
           - bstackdemo100
+      recordkey:
+        description: 'Cypress Cloud Key'
+        required: true
+        default: ''
+        type: string
+      projectid:
+        description: 'Cypress Project ID'
+        required: true
+        default: ''
+        type: string
 
 jobs:
   install:
@@ -76,10 +86,10 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ inputs.recordkey }}
+          CYPRESS_PROJECT_ID: ${{ inputs.projectid }}
         with:
           working-directory: ./Cypress
           record: true
           parallel: true
-          config: specPattern=cypress/e2e/${{ inputs.suite }}/*.cy.(ts|tsx|js|jsx),projectId=${{secrets.CYPRESS_PROJECT_ID}}
+          spec: cypress/e2e/${{ inputs.suite }}/*.cy.ts
