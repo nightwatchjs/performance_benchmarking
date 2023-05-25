@@ -82,6 +82,10 @@ jobs:
       - name: Post Download LS
         working-directory: ./Cypress
         run: ls
+      
+      - name: Install TS
+        working-directory: ./Cypress
+        run: npm install typescript --save-dev
 
       - name: Cypress run
         uses: cypress-io/github-action@v5
