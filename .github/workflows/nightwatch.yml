@@ -43,3 +43,8 @@ jobs:
     
     - name: Run Nightwatch tests
       run: npx nightwatch test/${{ inputs.suite }} --headless --env chrome
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: html-report
+        path: Nightwatch/tests_output/nightwatch-html-report/index.html
