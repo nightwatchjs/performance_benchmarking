@@ -43,7 +43,7 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: html-report
+        name: html-report-1
         path: Nightwatch/tests_output/nightwatch-html-report/index.html
       
   job-2:
@@ -75,7 +75,7 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: html-report
+        name: html-report-2
         path: Nightwatch/tests_output/nightwatch-html-report/index.html
   
   job-3:
@@ -107,7 +107,7 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: html-report
+        name: html-report-3
         path: Nightwatch/tests_output/nightwatch-html-report/index.html
     
   job-4:
@@ -139,7 +139,7 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: html-report
+        name: html-report-4
         path: Nightwatch/tests_output/nightwatch-html-report/index.html
   
   job-5:
@@ -171,5 +171,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: html-report
+        name: html-report-5
         path: Nightwatch/tests_output/nightwatch-html-report/index.html
